@@ -1,0 +1,51 @@
+@use '@styles/_var' as *;
+@use '@styles/_extend';
+.login-container{
+  height: 100%;
+  @extend %flex-center;
+
+}
+.login-form{
+  padding: 2rem;
+  margin: auto;
+  border-radius: 0.5rem;
+  text-align: center;
+  p{
+    text-align: center;
+    font-size: $font-24;
+    font-weight: $font-bold;
+    color: $clr-white;
+    @extend %text-cap;
+  }
+  .username, .password{
+    padding: 1rem;
+    font-size: 14px;
+    border: .2rem solid $clr-black;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    .login-inp{
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      &::placeholder{
+        font-size: $font-14;
+        &::first-letter{
+          @extend %text-upper;
+        }
+      }
+    }
+  }
+  .password{
+    margin-top: 1rem;
+  }
+  button[type='submit']{
+    margin-top: 1rem;
+    @extend %text-cap;
+    font-size: $font-16;
+    padding: 1rem 3rem;
+    border: 0;
+    border-radius: 10rem;
+    background-color: $clr-blue;
+    color: $clr-white;
+  }
+}

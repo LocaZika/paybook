@@ -1,0 +1,16 @@
+@use '@styles/_extend';
+@use 'sass:string' as *;
+@mixin flex($justify-content, $align-items, $wrap: "", $direction: "", $basis: 0){
+  @extend %d-flex;
+  justify-content: unquote($justify-content);
+  align-items: unquote($align-items);
+  @if $direction != "" {
+    flex-direction: unquote($direction);
+  }
+  @if $wrap != "" {
+    flex-wrap: unquote($wrap);
+  }
+  @if $basis != 0 {
+    flex-basis: $basis;
+  }
+};

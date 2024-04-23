@@ -1,0 +1,52 @@
+// display
+%d-block{
+  display: block;
+}
+%d-inline{
+  display: inline-block;
+}
+%d-flex{
+  display: flex;
+}
+%d-none{
+  display: none;
+}
+// position
+%pos-rel{
+  position: relative;
+}
+%pos-abs{
+  position: absolute;
+}
+%pos-fixed{
+  position: fixed;
+}
+// alignment
+%align-items{
+  align-items: center;
+}
+%justify-content{
+  justify-content: center;
+}
+%flex-center{
+  @extend %d-flex;
+  @extend %align-items;
+  @extend %justify-content;
+}
+// font
+%font-14{
+  font-size: 1.4rem;
+}
+%font-16{
+  font-size: 1.6rem;
+}
+// text
+%text-cap{
+  text-transform: capitalize;
+}
+%text-upper{
+  text-transform: uppercase;
+}
+%text-lower{
+  text-transform: lowercase;
+}

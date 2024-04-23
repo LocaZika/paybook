@@ -1,0 +1,1 @@
+export { default as jwt, decode } from './jwt';

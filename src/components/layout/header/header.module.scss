@@ -1,0 +1,12 @@
+@use '@styles/_extend';
+@use '@styles/_mixin' as *;
+.header-container{
+  padding: .5rem;
+  height: 12rem;
+  @include flex('space-between', 'center');
+  @media only screen and (max-width: 576px) {
+    .user-container{
+      display: none;
+    }
+  }
+}

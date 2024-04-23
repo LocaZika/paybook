@@ -1,0 +1,51 @@
+@use '@styles/_extend';
+.user-container{
+  @extend %flex-center;
+  @extend %pos-rel;
+  @extend %text-cap;
+  padding: 1rem;
+  cursor: pointer;
+  .user-name{
+    font-size: 1.6rem;
+    color: var(--clr-white);
+    padding: 0 1rem;
+    p{
+      margin: 0;
+    }
+  }
+  .user-icon{
+    @extend %pos-rel;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--clr-white);
+    border-radius: 50%;
+    svg{
+      @extend %pos-abs;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .user-menu{
+    @extend %pos-abs;
+    margin-top: 1rem;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 1rem;
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    font-size: 1.6rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.25s linear;
+  }
+  &.show{
+    .user-menu{
+      padding: 1rem;
+      height: auto;
+      visibility: visible;
+    }
+  }
+}

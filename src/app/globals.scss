@@ -1,0 +1,28 @@
+@import '../styles/root.scss';
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+html{
+  font-size: 62.5%;
+}
+html, body{
+  height: 100%;
+}
+body{
+  background-image: var(--bg-light);
+  &.dark{
+    background-color: var(--bg-dark);
+    background-image: none;
+  }
+}
+.glassify{
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
