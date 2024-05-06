@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import loginStyle from './login.module.scss';
-import handleLogin from '@/actions/login.action';
+import { handleLogin } from '@/actions';
 
 export const metadata: Metadata = {
   title: "Login"

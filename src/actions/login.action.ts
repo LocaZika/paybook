@@ -17,7 +17,7 @@ export default async function handleLogin(formData: FormData): Promise<void> {
     username: formData.get('username') as string,
     password: formData.get('password') as string,
   }
-  const userData = await fetch('http://localhost:2207/login', {
+  const userData = await fetch(`${process.env.HOST}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -28,8 +28,6 @@ export default async function handleLogin(formData: FormData): Promise<void> {
   if(data.ok == true) {
     const cookie = cookies();
     const userData = decode(data.token);
-    console.log(userData);
-    
     // default maxAge: 3600
     cookie.set('user', JSON.stringify(userData), { maxAge: 99999, secure: true, });
     redirect('/');

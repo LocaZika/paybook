@@ -1,9 +1,9 @@
 'use server'
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import Cookies from "universal-cookie";
 
 export default async function handleLogout(): Promise<void> {
-  const cookieStore = new Cookies;
-  cookieStore.remove('user');
+  const cookie = cookies();
+  cookie.delete('user');
   redirect('/login');
 }

@@ -1,5 +1,6 @@
 @use '@styles/_extend';
 @use '@styles/_mixin' as *;
+@use '@styles/_var' as *;
 .header-container{
   padding: .5rem;
   height: 12rem;
@@ -7,6 +8,16 @@
   @media only screen and (max-width: 576px) {
     .user-container{
       display: none;
+    }
+  }
+  .menu-right{
+    margin-left: 63.6666%;
+    &__btn{
+      background-color: rgba($color: #fafafa, $alpha: .1);
+      color: $clr-black;
+      padding: 1.5rem 2rem;
+      font-size: 1.6rem;
+      border-radius: 0.8rem;
     }
   }
 }
