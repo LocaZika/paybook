@@ -7,5 +7,5 @@ type TUserData = {
   exp: number,
   iat: number,
   isAdmin: boolean,
-  id: string,
+  _id: string,
 }

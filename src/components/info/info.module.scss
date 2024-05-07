@@ -1,5 +1,39 @@
 @use '@styles/_extend';
 @use '@styles/_var' as *;
 .info{
-  
+  color: $clr-black;
+  font-size: 1.4rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  flex-basis: 25%;
+  margin: 1rem;
+  div{
+    @extend %pos-rel;
+    > span{
+      @extend %pos-abs;
+      top: 0;
+      left: 1rem;
+    }
+    > P{
+      text-align: right;
+    }
+  }
+  &__name{
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-bottom: .2rem solid $clr-black;
+    @extend %text-cap;
+  }
+  &__debt, &__paid, &__total{
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+  }
+  &__total{
+    font-size: 1.6rem;
+    border-top: .2rem solid $clr-black;
+    text-align: right;
+  }
+  @media only screen and (max-width: 612px){
+    flex-basis: 100%;
+  }
 }

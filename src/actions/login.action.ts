@@ -4,8 +4,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 interface IRawFormData {
-  username: FormDataEntryValue;
-  password: FormDataEntryValue;
+  username: string;
+  password: string;
 }
 interface IResponseData {
   ok: boolean;

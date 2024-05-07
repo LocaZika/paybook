@@ -1,0 +1,36 @@
+  @use "@styles/_extend";
+  @use "@styles/_var" as *;
+  .expense-modal{
+    text-align: right;
+    &__show-btn {
+      background-color: $clr-blue;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      @extend %text-cap;
+      margin-right: 1rem;
+      border: 0;
+      border-radius: 1rem;
+    }
+    &__input-group{
+      @extend %d-flex;
+      flex-direction: column;
+      input, select{
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+        margin: 1rem 0;
+      }
+      input{
+        &::placeholder{
+          font-size: 1.4rem;
+          @extend %text-cap;
+        }
+      }
+    }
+    &__submit-btn{
+      @extend %text-cap;
+      padding: 1rem 1.5rem;
+      background-color: #6aa6ff;
+      font-size: 1.6rem;
+    }
+  }
