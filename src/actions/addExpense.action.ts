@@ -14,4 +14,16 @@ export default async function addExpense(formData: FormData): Promise<void>{
   if(expenseInfo.payerId == ""){
     return alert("Please choose the payer name!");
   }
+  const postExpense = await fetch(`${process.env.NEXT_PUBLIC_HOST}/users`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(expenseInfo),
+  });
+  console.log(process.env.NEXT_PUBLIC_HOST);
+  
+  const res = await postExpense.json();
+  return res;
 } 

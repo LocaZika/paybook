@@ -1,11 +1,7 @@
 type TUserData = {
-  username: string,
-  password: string,
   displayName: string,
-  debt: number,
-  paid: number,
+  paied: number,
   exp: number,
   iat: number,
-  isAdmin: boolean,
   _id: string,
 }

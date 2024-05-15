@@ -11,7 +11,6 @@ interface IUser{
 }
 export default function User({username}: IUser) {
   const [isShow, setIsShow] = useState<boolean>(false);
-  const router = useRouter();
   const toggleShow = (): void => {
     setIsShow(!isShow);
   }

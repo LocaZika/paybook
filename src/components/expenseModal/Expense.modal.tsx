@@ -3,11 +3,17 @@ import { useState } from 'react';
 import expenseModalStyle from './expenseModal.module.scss';
 import { Modal } from 'react-bootstrap';
 import { addExpense } from '@/actions';
+import { useRouter } from 'next/navigation';
 
 export default function ExpenseModal({users}: {users: TUserData[]}) {
+  const router = useRouter();
   const [show, setShow] = useState<boolean>(false);
   const handleShow = (): void => setShow(true);
   const handleClose = (): void => setShow(false);
+  const handleSubmitBtn = (): void => {
+    handleClose();
+    router.refresh();
+  };
   return (
     <div className={expenseModalStyle['expense-modal']}>
       <button
@@ -38,7 +44,7 @@ export default function ExpenseModal({users}: {users: TUserData[]}) {
             <button
               type='submit'
               className={expenseModalStyle['expense-modal__submit-btn']}
-              onClick={handleClose}
+              onClick={handleSubmitBtn}
             >
               add expense
             </button>

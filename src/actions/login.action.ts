@@ -17,7 +17,7 @@ export default async function handleLogin(formData: FormData): Promise<void> {
     username: formData.get('username') as string,
     password: formData.get('password') as string,
   }
-  const userData = await fetch(`${process.env.HOST}/login`, {
+  const userData = await fetch(`${process.env.NEXT_PUBLIC_HOST}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

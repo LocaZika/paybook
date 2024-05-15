@@ -4,3 +4,4 @@ export {
   getHslColor as getRandomHslColor,
   getHexColor as getRandomHexColor
 } from './randomColor';
+export { toCurrency } from './curency';

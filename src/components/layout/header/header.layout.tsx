@@ -8,9 +8,12 @@ import { Suspense, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-export default function HeaderLayout(){
+interface IHeader {
+  user: TUserData,
+}
+
+export default function HeaderLayout({user}: IHeader){
   const [show, setShow] = useState<boolean>(false);
-  const userData = useCookie<TUserData>('user');
   const mediaQuery: number = useWindowWidth();
   const handleOpen = (): void => setShow(true);
   const handleClose = (): void => setShow(false);
@@ -28,22 +31,20 @@ export default function HeaderLayout(){
             md={{span: 4, offset: 6}}
             lg={{span: 2, offset: 8}}
           >
-            <Suspense fallback={<Loading/>}>
-              {
-                mediaQuery <= 430 ?
-                <>
-                  <button
-                    type='button'
-                    className={`${headerStyle['menu-right__btn']} glassify`}
-                    onClick={handleOpen}
-                  >
-                    <FontAwesomeIcon icon={faBars} />
-                  </button>
-                  <NavbarMobile show={show} onClose={handleClose}/>
-                </>:
-                <User username={userData?.displayName} />
-              }
-            </Suspense>
+            {
+              mediaQuery <= 430 ?
+              <>
+                <button
+                  type='button'
+                  className={`${headerStyle['menu-right__btn']} glassify`}
+                  onClick={handleOpen}
+                >
+                  <FontAwesomeIcon icon={faBars} />
+                </button>
+                <NavbarMobile show={show} onClose={handleClose}/>
+              </>:
+              <User username={user?.displayName} />
+            }
           </Col>
         </Row>
       </Container>

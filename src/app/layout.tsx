@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import "@styles/bootstrap.min.css";
-import { Header } from "@/components";
+import { Header, Navbar } from "@/components";
+import { Col, Container, Row } from "react-bootstrap";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +19,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userCookie = cookies().get("user");
+  if ( userCookie === undefined ) {
+    return redirect("/login");
+  }
+  const user = JSON.parse(userCookie.value);
   return (
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
       </head>
       <body className={inter.className}>
-        <Header />
-        {children}
+        <Header user={user}/>
+        <Container fluid>
+          <Row>
+            <Col sm={2}>
+              <Navbar />
+            </Col>
+            <Col sm={10}>
+              {children}
+            </Col>
+          </Row>
+        </Container>
       </body>
     </html>
   );

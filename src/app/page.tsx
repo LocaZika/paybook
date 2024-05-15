@@ -9,13 +9,14 @@ export default async function Home() {
   if(!getCookie){
     return redirect('/login');
   }
-  const getUsers = await fetch(`${process.env.HOST}/users`, {
+  const getUsers = await fetch(`${process.env.NEXT_PUBLIC_HOST}/users`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
     },
   });
   const users = await getUsers.json();
+  cookies().set('users', users, { maxAge: 99999, secure: true, });
   return (
     <>
       {
